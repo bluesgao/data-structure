@@ -8,7 +8,7 @@ package com.bluesgao.ds.array;
  * 4，数组具有空间局部性优势，对cpu cache友好，可以利用cpu cache line，访问效率高。
  * 5，数组的缺点是容量固定。
  */
-public class Array {
+public class MyArray {
     //保存数据容器
     private int elementData[];
     //数组容量
@@ -17,7 +17,7 @@ public class Array {
     private int size;
 
     //构造函数，定义数组大小
-    public Array(int n) {
+    public MyArray(int n) {
         elementData = new int[n];
         capacity = n;
         size = 0;
@@ -144,7 +144,7 @@ public class Array {
     }
 
     public static void main(String[] args) {
-        Array arr = new Array(5);
+        MyArray arr = new MyArray(5);
         arr.insert(0, 10);
         arr.insert(1, 11);
         arr.insert(2, 22);
