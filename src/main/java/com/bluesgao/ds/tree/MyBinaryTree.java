@@ -116,6 +116,21 @@ public class MyBinaryTree {
         return max;
     }
 
+    public TreeNode invert(TreeNode root) {
+        //叶子节点不需要翻转
+        if (root == null) {
+            return null;
+        }
+
+        TreeNode temp = root;
+        TreeNode left = invert(root.getLeft());
+        TreeNode right = invert(root.getRight());
+
+        root.setRight(left);
+        root.setLeft(right);
+        return root;
+    }
+
 
     public static void main(String[] args) {
         /**
@@ -134,6 +149,8 @@ public class MyBinaryTree {
         TreeNode n1 = new TreeNode(1, n2, n3);
 
         MyBinaryTree binaryTree = new MyBinaryTree();
+        System.out.println("\n-----节点翻转------");
+        binaryTree.invert(n1);
         System.out.println("\n-----前序遍历------");
         binaryTree.preOrder(n1);
         System.out.println("\n-----中序遍历------");
